@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/bower_components/sweetalert/dist/sweetalert.css">
+  <link rel="stylesheet" href="/css/bootswatch.min.css">
+  <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="/bower_components/ngSweetAlert/SweetAlert.min.js"></script>
+  <script src="/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="/js/module.js"></script>
+  <script src="/js/controllers.js"></script>
+  <script src="/js/services.js"></script>
+
+</head>
+<body ng-app='myApp' ng-controller='mainCtrl'>
+  <div class="container">
+    <!-- <pre>{{currentUser | json}}</pre> -->
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <ul class="nav navbar-nav navbar-right">
+
+          <li><a class="active" ui-sref='home'>Home</a></li>
+          <li><a ng-show="currentUser" class="btn" ui-sref='profile'>Profile</a></li>
+          <li><a ng-hide="currentUser" class="btn" ui-sref='login'>Login</a></li>
+          <li><a ng-hide="currentUser" class="btn" ui-sref='register'>Register</a></li>
+          <li><a ng-show="currentUser" class="btn" ui-sref='register' ng-click="logout()">LogOut</a></li>
+      </div>
+    </nav>
+    <br>
+    <br>
+    <!-- <button class="btn" ui-sref='home'>Home</button>
+    <button ng-hide="currentUser" class="btn" ui-sref='profile'>Profile</button>
+    <button ng-hide="currentUser" class="btn" ui-sref='login'>Login</button>
+    <button ng-hide="currentUser" class="btn" ui-sref='register'>Register</button>
+    <button ng-show="currentUser" class="btn" ui-sref='register' ng-click="logout()">LogOut</button> -->
+    <br>
+    <h1><%= title %></h1>
+    <span ng-show="currentUser"><h3>Hello, {{currentUser.username}}!</h3></span>
+
+    <div ui-view></div>
+
+  </div>
+</body>
+</html>

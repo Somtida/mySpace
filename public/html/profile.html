@@ -1,0 +1,139 @@
+<div class="container myProfile">
+
+
+
+  <br>
+  <div class="row" ng-show="profileArea">
+      <div class="col-xs-10 col-xs-offset-1">
+          <div class="well well-sm">
+              <div class="row">
+                  <div class="col-xs-5">
+                      <img src={{currentUser.imageUrl}} width=380 height=500 alt="myImage" class="img-rounded img-responsive" />
+                  </div>
+                  <div class="col-xs-6">
+                      <h4>{{currentUser.name}}</h4>
+                      <small><cite title="San Francisco, USA">San Francisco, USA <i class="glyphicon glyphicon-map-marker">
+                      </i></cite></small>
+                      <br>
+                      <p>
+                          <i class="fa fa-envelope col-xs-5 text-right"></i>
+                          <span class="col-xs-7 text-left">
+                            <a target="_blank" href={{"mailto:"+currentUser.email}}>{{currentUser.email}}</a>
+                          </span>
+                      </p>
+                      <br>
+                      <p>
+                          <i class="fa fa-gift col-xs-5 text-right"></i>
+                          <span class="col-xs-7 text-left">{{currentUser.dob | date}}</span>
+                      </p>
+                      <br>
+                      <!-- Split button -->
+                      <div class="space">
+                        <a class="btn btn-info btn-twitter btn-sm btnCircle" target="_blank" href={{currentUser.twitter}}>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a class="btn btn-danger btn-sm btnCircle" rel="publisher" target="_blank" href="#">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                        <a class="btn btn-primary btn-sm btnCircle" rel="publisher" target="_blank" href={{currentUser.facebook}}>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+
+                      </div>
+                  </div>
+                  <div class="col-xs-1">
+                    <button class="btn btn-warning btn-sm" ng-click="editProfile()"><i class="fa fa-pencil-square-o"></i></button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  <!-- edit profile -->
+  <div class="container" ng-show="editProfileArea">
+    <br>
+    <form class="form-horizontal" role="form" ng-submit="saveEditProfile()">
+      <span>
+        <h2 class="text-left"><i class="fa fa-list-alt"></i>  EDIT</h2>
+      </span>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Username</label>
+        <div class="col-sm-9">
+          <input type="text" ng-model="myInfo.username" placeholder="Username" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Password</label>
+        <div class="col-sm-9">
+          <input type="password" ng-model="myInfo.password" placeholder="Password" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Password</label>
+        <div class="col-sm-9">
+          <input type="password" ng-model="myInfo.password2" placeholder="Confirm Password" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+          <label class="col-sm-3 control-label">Full Name</label>
+          <div class="col-sm-9">
+              <input type="text" ng-model="myInfo.name" placeholder="Full Name" class="form-control" autofocus required>
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="col-sm-3 control-label">Email</label>
+          <div class="col-sm-9">
+              <input type="email" ng-model="myInfo.email" placeholder="Email" class="form-control">
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="col-sm-3 control-label">twitter</label>
+          <div class="col-sm-9">
+              <input type="type" ng-model="myInfo.twitter" placeholder="twitter URL" class="form-control">
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="col-sm-3 control-label">facebook</label>
+          <div class="col-sm-9">
+              <input type="type" ng-model="myInfo.facebook" placeholder="facebook URL" class="form-control">
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label class="col-sm-3 control-label">Date of Birth</label>
+          <div class="col-sm-9">
+              <input type="date" ng-model="myInfo.dob" class="form-control">
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="control-label col-sm-3">Gender</label>
+          <div class="col-sm-6">
+              <div class="row">
+                  <div class="col-sm-6">
+                      <label class="radio-inline">
+                          <input type="radio" ng-model="myInfo.gender" value="Female">Female
+                      </label>
+                  </div>
+                  <div class="col-sm-6">
+                      <label class="radio-inline">
+                          <input type="radio" ng-model="myInfo.gender" value="Male">Male
+                      </label>
+                  </div>
+              </div>
+          </div>
+      </div> <!-- /.form-group -->
+      <div class="form-group">
+          <label class="col-sm-3 control-label">Image</label>
+          <div class="col-sm-9">
+              <input type="type" ng-model="myInfo.imageUrl" placeholder="imageUrl" class="form-control">
+          </div>
+      </div>
+      <div>
+        <button class="btn btn-success btn-block">SAVE</button>
+      </div>
+    </form> <!-- /form -->
+  </div> <!-- ./container -->
+
+
+</div>
