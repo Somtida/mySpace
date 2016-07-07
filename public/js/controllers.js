@@ -18,7 +18,7 @@ app.controller('homeCtrl', function($scope, $state, Message){
 
 })
 
-app.controller('profileCtrl', function(CurrentUser, $scope, Message, User) {
+app.controller('profileCtrl', function(CurrentUser, $scope, $state, Message, User) {
   console.log('profileCtrl!');
   $scope.editProfileArea = false;
   $scope.profileArea = true;
@@ -71,8 +71,10 @@ app.controller('profileCtrl', function(CurrentUser, $scope, Message, User) {
     console.log("$scope.msg: ", $scope.msg);
     Message.postMessage($scope.msg)
       .then(res => {
+        console.log("res.data: ",res.data);
         console.log("posted");
         $scope.msg = null;
+        $state.go($state.current, {}, {reload: true});
       })
       .catch(err => {
         console.log("err: ",err);
