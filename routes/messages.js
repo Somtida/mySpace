@@ -16,6 +16,12 @@ router.route('/')
   .post((req,res)=>{
     Message.create(req.body, (err, message)=>{
       res.status(err ? 400 : 200).send(err || message);
+
+    })
+  })
+  .delete((req, res)=>{
+    Message.remove({}, (err)=>{
+      res.status(err ? 400 : 200).send(err)
     })
   })
 
@@ -31,10 +37,7 @@ router.route('/:id')
     })
   })
 
-router.put('/:messageId/addUser/:userId', (req, res)=>{
-  Message.addUser(req.params.messageId, req.params.userId, (err, savedMessage)=>{
-    res.status(err ? 400 : 200).send(err || savedMessage);
-  })
-})
+
+
 
 module.exports = router;

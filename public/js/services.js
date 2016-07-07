@@ -35,4 +35,17 @@ app.service('User', function($http, $rootScope, $cookies, $state, $q, TOKENNAME)
     $state.go('home');
   };
 
+  this.edit = (userId, newUserObj) => {
+    return $http.put(`/api/users/${userId}`, newUserObj);
+  }
+
 });
+
+app.service('Message', function($http){
+  this.get = () => {
+    return $http.get('/api/messages')
+  }
+  this.postMessage = (msgObj) => {
+    return $http.post('/api/messages', msgObj)
+  }
+})

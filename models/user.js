@@ -16,6 +16,7 @@ let userSchema = new mongoose.Schema({
   twitter: { type: String },
   facebook: { type: String },
   gender: { type: String },
+  location: { type: String },
   imageUrl: { type: String },
   createdAt: {type: Date, default: Date.now}
 

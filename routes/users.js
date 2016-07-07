@@ -13,6 +13,11 @@ router.get('/profile', User.authMiddleware, (req, res) => {
   res.send(req.user);
 });
 
+router.get('/home', User.authMiddleware, (req, res) => {
+  console.log('home  req.user:', req.user);
+  res.send(req.user);
+});
+
 router.get('/', (req, res) => {
   // NOT FOR PRODUCTION - TESTING ONLY
   User.find({}, (err, users) => {
@@ -66,5 +71,16 @@ router.delete('/:id', (req, res) => {
   });
 });
 
+router.put('/:id', (req, res) => {
+  User.findByIdAndUpdate(req.params.id, req.body , err => {
+    res.status(err ? 400 : 200).send(err);
+  });
+});
+
+// router.put('/:userId', (req, res)=>{
+//   Message.findByIdAndUpdate(req.params.userId, req.body, {new: true}, (err, savedMessage)=>{
+//     res.status(err ? 400 : 200).send(err || savedMessage);
+//   })
+// })
 
 module.exports = router;

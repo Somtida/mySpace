@@ -1,7 +1,10 @@
 body{
   text-align: center;
 }
-
+.textName{
+  color: blue;
+  font-size: 20px;
+}
 /*LOGIN*/
 .panel-heading {
     padding: 5px 15px;
@@ -43,7 +46,7 @@ body {
 /*PROFILE*/
 .myProfile{
   /*padding-top:30px;*/
-  text-align: center;
+  /*text-align: center;*/
 }
 .space{
   margin-top: 15px;

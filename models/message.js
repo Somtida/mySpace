@@ -3,9 +3,11 @@
 const mongoose = require('mongoose');
 
 let messageSchema = new mongoose.Schema({
-  message: { type: String, required: true},
-  createdAt: {type: Date, default: Date.now},
-  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+  message: { type: String, required: true },
+  createdAt: {type: Date, default: Date.now },
+  userId: { type: String },
+  userImage: { type: String },
+  userName: { type: String }
 });
 
 messageSchema.statics.addUser = function(messageId, userId, cb){
